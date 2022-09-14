@@ -1,3 +1,14 @@
+# Grocery Item List
+Created with React, the form takes in an item name and price, adds it to a list and calculates the total value of the accumulated grocery items.
+
+The practice app focuses on the usage of:
+  - component creation
+  - list generation
+  - styling using CSS modules
+  - usage of useState to update state
+  - parent-child, child-parent communication
+  - lifting of state
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
