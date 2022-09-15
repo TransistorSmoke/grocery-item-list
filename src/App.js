@@ -29,7 +29,6 @@ const App = () => {
   const clearGroceryList = () => {
     setTotalGroceryAmount(0);
     setGroceryList([]);
-    console.log('grocery list cleared');
   };
 
   return (

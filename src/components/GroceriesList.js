@@ -25,7 +25,7 @@ const GroceriesList = (props) => {
             </ul>
           </>
         ) : (
-          <h5 className={classes.alignCenter}>Add you grocery items</h5>
+          <h5 className={classes.alignCenter}>Add your grocery items</h5>
         )}
       </Card>
 
