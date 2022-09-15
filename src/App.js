@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import { type } from '@testing-library/user-event/dist/type';
+import React, { useState } from 'react';
 import './App.css';
+import AddGroceryItem from './components/AddGroceryItem';
+import GroceriesList from './components/GroceriesList';
+import Button from './components/UI/Button';
 
-function App() {
+const App = () => {
+  const [groceryList, setGroceryList] = useState([]);
+  const [totalGroceryAmount, setTotalGroceryAmount] = useState(0);
+
+  const addGroceryItemHandler = (item, price) => {
+    setGroceryList((prevGroceryList) => {
+      return [
+        ...prevGroceryList,
+        {
+          item,
+          price,
+          id: Math.random().toString(),
+        },
+      ];
+    });
+  };
+
+  const getTotalGroceryAmount = (price) => {
+    setTotalGroceryAmount((prevAmount) => (prevAmount += price));
+  };
+
+  const clearGroceryList = () => {
+    setTotalGroceryAmount(0);
+    setGroceryList([]);
+    console.log('grocery list cleared');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AddGroceryItem
+        onAddGroceryItem={addGroceryItemHandler}
+        onGetGroceryTotal={getTotalGroceryAmount}
+      />
+      <GroceriesList
+        groceryItems={groceryList}
+        groceriesTotal={totalGroceryAmount}
+        onClearGroceryList={clearGroceryList}
+      />
+    </>
   );
-}
+};
 
 export default App;

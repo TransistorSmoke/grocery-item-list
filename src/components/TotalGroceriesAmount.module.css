@@ -1,0 +1,27 @@
+.container {
+  border: 2px solid #555;
+  width: 40rem;
+  margin: 12px auto 0 auto;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 239, 116);
+}
+
+.container * {
+}
+
+.totalText {
+  padding: 0;
+  margin-left: 2rem;
+  padding: 0.3rem 1rem;
+}
+
+.totalAmount {
+  background-color: rgb(255, 248, 234);
+  padding: 0.3rem 1rem;
+  width: 120px;
+  text-align: right;
+  color: rgb(85, 85, 85);
+  border-radius: 8px 0 0 8px;
+}
