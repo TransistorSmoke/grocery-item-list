@@ -4,7 +4,7 @@ import Button from './UI/Button';
 import classes from './AddGroceryItem.module.css';
 import ErrorModal from './UI/ErrorModal';
 
-const AddGroceryItem = (props) => {
+const AddGroceryItem = ({ onAddGroceryItem, onGetGroceryTotal }) => {
   const [itemName, setItemName] = useState('');
   const [itemPrice, setItemPrice] = useState('');
   const [error, setError] = useState();
@@ -20,8 +20,8 @@ const AddGroceryItem = (props) => {
       return;
     }
 
-    props.onAddGroceryItem(itemName, parseFloat(itemPrice));
-    props.onGetGroceryTotal(parseFloat(itemPrice));
+    onAddGroceryItem(itemName, parseFloat(itemPrice));
+    onGetGroceryTotal(parseFloat(itemPrice));
     setItemName('');
     setItemPrice('');
   };

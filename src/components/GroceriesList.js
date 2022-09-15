@@ -4,7 +4,11 @@ import Button from './UI/Button';
 import classes from './GroceriesList.module.css';
 import TotalGroceriesAmount from './TotalGroceriesAmount';
 
-const GroceriesList = (props) => {
+const GroceriesList = ({
+  groceryItems,
+  groceriesTotal,
+  onClearGroceryList,
+}) => {
   return (
     <>
       <Card className={classes.list}>
@@ -12,10 +16,10 @@ const GroceriesList = (props) => {
           Grocery List
         </h1>
 
-        {props.groceryItems.length > 0 ? (
+        {groceryItems.length > 0 ? (
           <>
             <ul>
-              {props.groceryItems.map((item) => (
+              {groceryItems.map((item) => (
                 <li key={item.id} className={classes.listItem}>
                   <p>{item.item}</p>
                   <p>-------------------------------------</p>
@@ -29,14 +33,11 @@ const GroceriesList = (props) => {
         )}
       </Card>
 
-      {props.groceryItems.length > 0 ? (
+      {groceryItems.length > 0 ? (
         <>
-          <TotalGroceriesAmount total={props.groceriesTotal} />
+          <TotalGroceriesAmount total={groceriesTotal} />
           <div className={classes.button}>
-            <Button
-              className={classes.clear}
-              onClick={props.onClearGroceryList}
-            >
+            <Button className={classes.clear} onClick={onClearGroceryList}>
               Clear Groceries List
             </Button>
           </div>
